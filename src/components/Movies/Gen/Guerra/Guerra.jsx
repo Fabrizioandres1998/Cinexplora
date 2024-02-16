@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import SliderAccion from './SliderAccion'
+import SliderGuerra from './SliderGuerra'
 
 
-const Accion = () => {
-    const [peliculasAccion, setPeliculasAccion] = useState([])
+
+const Guerra = () => {
+    const [peliculasGuerra, setPeliculasGuerra] = useState([])
 
     useEffect(() => {
         const APIkey = '7f084ba9c7318f8925458bd9753330de'
@@ -11,7 +12,7 @@ const Accion = () => {
         const totalPages = 10
 
         const fetchData = async (page) => {
-            const URLtmdb = `${APIurl}?api_key=${APIkey}&language=es-US&sort_by=popularity.desc&page=${page}&with_genres=${28}`
+            const URLtmdb = `${APIurl}?api_key=${APIkey}&language=es-US&sort_by=popularity.desc&page=${page}&with_genres=${10752}`
             try {
                 const resp = await fetch(URLtmdb)
                 const data = await resp.json()
@@ -30,7 +31,7 @@ const Accion = () => {
                 allResults = [...allResults, ...results]
             }
 
-            setPeliculasAccion(allResults)
+            setPeliculasGuerra(allResults)
         }
 
 
@@ -39,10 +40,10 @@ const Accion = () => {
 
     return (
         <>
-            <h1>Peliculas</h1>
-            <SliderAccion peliculasAccion={peliculasAccion} />
+            <h1>Guerra</h1>
+            <SliderGuerra peliculasGuerra={peliculasGuerra} />
         </>
     )
 }
 
-export default Accion
+export default Guerra

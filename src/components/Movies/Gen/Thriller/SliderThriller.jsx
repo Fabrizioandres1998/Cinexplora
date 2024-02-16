@@ -1,6 +1,5 @@
 import React from 'react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
@@ -9,15 +8,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const Slider = ({ peliculas }) => {
-    console.log(peliculas)
+const SliderThriller = ({ peliculasThriller }) => {
+    console.log(peliculasThriller)
 
-    const imagen = peliculas.map((pelicula) => (
-        <SwiperSlide key={pelicula.id}>
-                <img
-                    src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
-                    alt={pelicula.title}
-                />
+    const imagenThriller = peliculasThriller.map((peliculaThriller) => (
+        <SwiperSlide key={peliculaThriller.id}>
+            <img
+                src={`https://image.tmdb.org/t/p/w500${peliculaThriller.poster_path}`}
+                alt={peliculaThriller.title}
+            />
         </SwiperSlide>
     ))
 
@@ -33,9 +32,9 @@ const Slider = ({ peliculas }) => {
         // onSwiper={(swiper) => console.log(swiper)}
         // onSlideChange={() => console.log('slide change')}
         >
-            {imagen}
+            {imagenThriller}
         </Swiper>
     )
 }
 
-export default Slider
+export default SliderThriller

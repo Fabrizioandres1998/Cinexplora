@@ -8,14 +8,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-const SliderAccion = ({ peliculasAccion }) => {
-    console.log(peliculasAccion)
+const SliderAventura = ({ peliculasAventura }) => {
+    console.log(peliculasAventura)
 
-    const imagenAccion = peliculasAccion.map((peliculaAccion) => (
-        <SwiperSlide key={peliculaAccion.id}>
+    const imagenAventura = peliculasAventura.map((peliculaAventura) => (
+        <SwiperSlide key={peliculaAventura.id}>
             <img
-                src={`https://image.tmdb.org/t/p/w500${peliculaAccion.poster_path}`}
-                alt={peliculaAccion.title}
+                src={`https://image.tmdb.org/t/p/w500${peliculaAventura.poster_path}`}
+                alt={peliculaAventura.title}
             />
         </SwiperSlide>
     ))
@@ -24,7 +24,7 @@ const SliderAccion = ({ peliculasAccion }) => {
     return (
         <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
+            spaceBetween={5}
             slidesPerView={4}
             navigation
         // pagination={{ clickable: true }}
@@ -32,9 +32,9 @@ const SliderAccion = ({ peliculasAccion }) => {
         // onSwiper={(swiper) => console.log(swiper)}
         // onSlideChange={() => console.log('slide change')}
         >
-            {imagenAccion}
+            {imagenAventura}
         </Swiper>
     )
 }
 
-export default SliderAccion
+export default SliderAventura

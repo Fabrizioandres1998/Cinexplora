@@ -1,47 +1,50 @@
-import { useEffect, useState } from 'react'
-import Slider from './Slider'
+import Accion from "./Gen/Accion/Accion"
+import Animacion from "./Gen/Animacion/Animacion"
+import Aventura from "./Gen/Aventura/Aventura"
+import CienciaFiccion from "./Gen/Ciencia ficcion/CienciaFiccion"
+import Comedia from "./Gen/Comedia/Comedia"
+import Crimen from "./Gen/Crimen/Crimen"
+import Documental from "./Gen/Documental/Documental"
+import Drama from "./Gen/Drama/Drama"
+import Familia from "./Gen/Familia/Familia"
+import Fantasia from "./Gen/Fantasia/Fantasia"
+import Guerra from "./Gen/Guerra/Guerra"
+import Historia from "./Gen/Historia/Historia"
+import Misterio from "./Gen/Misterio/Misterio"
+import Musica from "./Gen/Musica/Musica"
+import PeliculasTv from "./Gen/Peliculas de TV/PeliculasTv"
+import Romance from "./Gen/Romance/Romance"
+import Terror from "./Gen/Terror/Terror"
+import Thriller from "./Gen/Thriller/Thriller"
+import Western from "./Gen/Western/Western"
 
-const GetApiData = () => {
-    const [peliculas, setPeliculas] = useState([])
-
-    useEffect(() => {
-        const APIkey = '7f084ba9c7318f8925458bd9753330de'
-        const APIurl = 'https://api.themoviedb.org/3/discover/movie'
-        const totalPages = 40
-
-        const fetchData = async (page) => {
-            const URLtmdb = `${APIurl}?api_key=${APIkey}&language=es-US&sort_by=popularity.desc&page=${page}`
-            try {
-                const resp = await fetch(URLtmdb)
-                const data = await resp.json()
-                return data.results
-            } catch (error) {
-                console.error(`Error al obtener datos de la página ${page}:`, error)
-                return []
-            }
-        }
-
-        const fetchAllPages = async () => {
-            let allResults = []
-
-            for (let page = 1; page <= totalPages; page++) {
-                const results = await fetchData(page)
-                allResults = [...allResults, ...results]
-            }
-
-            setPeliculas(allResults)
-        }
-
-
-        fetchAllPages()
-    }, [])
+const Movies = () => {
 
     return (
         <>
-            <h1>Peliculas</h1>
-            <Slider peliculas={peliculas} />
+            <Animacion />
+            <Documental />
+            <Terror />
+            <Accion />
+            <Western />
+            <Romance />
+            <Aventura />
+            <CienciaFiccion />
+            <Comedia />
+            <Crimen />
+            <Drama />
+            <Familia />
+            <Fantasia />
+            <Guerra />
+            <Historia />
+            <Misterio />
+            <Musica />
+            <PeliculasTv />
+            <Romance />
+            <Thriller />
+            <Western />
         </>
     )
 }
 
-export default GetApiData
+export default Movies

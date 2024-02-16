@@ -4,9 +4,13 @@
 }
 
 img {
-    height: 750px;
+    width: 100%;
 }
 
 * {
     background-color: rgb(33, 37, 41)
+}
+
+h1 {
+    color: white;
 }
