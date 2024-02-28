@@ -18,6 +18,7 @@ const SliderWestern = ({ peliculasWestern }) => {
                 alt={peliculaWestern.title}
             />
         </SwiperSlide>
+
     ))
 
 

@@ -6,7 +6,6 @@ import Comedia from "./Gen/Comedia/Comedia"
 import Crimen from "./Gen/Crimen/Crimen"
 import Documental from "./Gen/Documental/Documental"
 import Drama from "./Gen/Drama/Drama"
-import Familia from "./Gen/Familia/Familia"
 import Fantasia from "./Gen/Fantasia/Fantasia"
 import Guerra from "./Gen/Guerra/Guerra"
 import Historia from "./Gen/Historia/Historia"
@@ -22,10 +21,11 @@ const Movies = () => {
 
     return (
         <>
+            <Accion />
             <Animacion />
             <Documental />
             <Terror />
-            <Accion />
+
             <Western />
             <Romance />
             <Aventura />
@@ -33,16 +33,13 @@ const Movies = () => {
             <Comedia />
             <Crimen />
             <Drama />
-            <Familia />
             <Fantasia />
             <Guerra />
             <Historia />
             <Misterio />
             <Musica />
             <PeliculasTv />
-            <Romance />
             <Thriller />
-            <Western />
         </>
     )
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import SliderAccion from './SliderAccion'
-
-
+import InfoPeliculaAccion from './InfoPeliculaAccion'
 
 const Accion = () => {
     const [peliculasAccion, setPeliculasAccion] = useState([])
@@ -21,6 +20,9 @@ const Accion = () => {
                 console.error(`Error al obtener datos de la página ${page}:`, error)
                 return []
             }
+
+            
+            
         }
 
         const fetchAllPages = async () => {
@@ -42,6 +44,7 @@ const Accion = () => {
         <>
             <h1>{peliculasAccion.length > 0 ? 'Acción' : ''}</h1>
             <SliderAccion peliculasAccion={peliculasAccion} />
+            <InfoPeliculaAccion peliculasAccion ={peliculasAccion}/>
         </>
     )
 }
