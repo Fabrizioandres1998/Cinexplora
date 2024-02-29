@@ -7,6 +7,7 @@ import Accion from "./components/Movies/Gen/Accion/Accion"
 import Videos from "./components/Movies/Videos"
 import InfoPeliculaAccion from "./components/Movies/Gen/Accion/InfoPeliculaAccion"
 
+
 function App() {
 
   return (

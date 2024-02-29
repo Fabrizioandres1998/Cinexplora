@@ -9,7 +9,7 @@ const Thriller = () => {
     useEffect(() => {
         const APIkey = '7f084ba9c7318f8925458bd9753330de'
         const APIurl = 'https://api.themoviedb.org/3/discover/movie'
-        const totalPages = 10
+        const totalPages = 1
 
         const fetchData = async (page) => {
             const URLtmdb = `${APIurl}?api_key=${APIkey}&language=es-US&sort_by=popularity.desc&page=${page}&with_genres=${53}`
