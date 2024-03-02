@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const SliderAnimacion = ({ peliculasAnimacion }) => {
-    console.log(peliculasAnimacion)
+
 
     const imagenAnimacion = peliculasAnimacion.map((peliculaAnimacion) => (
         <SwiperSlide key={peliculaAnimacion.id}>
@@ -29,8 +29,6 @@ const SliderAnimacion = ({ peliculasAnimacion }) => {
             navigation
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log('slide change')}
         >
             {imagenAnimacion}
         </Swiper>

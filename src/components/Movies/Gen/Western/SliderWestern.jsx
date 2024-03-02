@@ -9,7 +9,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const SliderWestern = ({ peliculasWestern }) => {
-    console.log(peliculasWestern)
 
     const imagenWestern = peliculasWestern.map((peliculaWestern) => (
         <SwiperSlide key={peliculaWestern.id}>

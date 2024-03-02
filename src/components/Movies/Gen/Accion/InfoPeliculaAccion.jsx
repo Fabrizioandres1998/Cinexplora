@@ -12,12 +12,22 @@ const InfoPeliculaAccion = ({ peliculasAccion }) => {
 
 
         const fetchData = async () => {
-            const URLtmdb = `${APIurl}${id}/videos?api_key=${APIkey}&language=en`
+            let URLtmdb = `${APIurl}${id}/videos?api_key=${APIkey}&language=es`
 
             try {
                 const resp = await fetch(URLtmdb)
                 const data = await resp.json()
-                setTrailer(data.results)
+
+                if (!data.results || data.results.length === 0) {
+                    const URLtmdbEN = `${APIurl}${id}/videos?api_key=${APIkey}&language=en`
+                    const respEN = await fetch(URLtmdbEN)
+                    const dataEN = await respEN.json()
+
+                    setTrailer(dataEN.results)
+                } else {
+                    setTrailer(data.results)
+                }
+
             } catch (error) {
                 console.error('error', error)
             }

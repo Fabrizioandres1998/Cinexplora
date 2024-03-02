@@ -1,4 +1,4 @@
-import Accion from "./Gen/Accion/Accion"
+// import SliderAccion from "./Gen/Accion/SliderAccion"
 import Animacion from "./Gen/Animacion/Animacion"
 import Aventura from "./Gen/Aventura/Aventura"
 import CienciaFiccion from "./Gen/Ciencia ficcion/CienciaFiccion"
@@ -21,7 +21,7 @@ const Movies = () => {
 
     return (
         <>
-            <Accion />
+            {/* <SliderAccion /> */}
             <Animacion />
             <Documental />
             <Terror />

@@ -5,29 +5,40 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import Genero from '../Genero/Genero';
+import { useEffect } from 'react';
 
-const SliderAccion = ({ peliculasAccion }) => {
+const SliderAccion = ({ peliculasGenero, setGeneroID, generoID }) => {
 
-    const imagenAccion = peliculasAccion.map((peliculaAccion) => (
-        <SwiperSlide key={peliculaAccion.id}>
-            <Link to={`/pelicula/${peliculaAccion.id}/${encodeURIComponent(peliculaAccion.title)}`}>
+    useEffect(() => {
+        setGeneroID(28)
+    }, []);
+
+    console.log(peliculasGenero)
+    const imagenAccion = peliculasGenero.map((peliculaGenero) => (
+        <SwiperSlide key={peliculaGenero.id}>
+            <Link to={`/pelicula/${peliculaGenero.id}/${encodeURIComponent(peliculaGenero.title)}`}>
                 <img
-                    src={`https://image.tmdb.org/t/p/w500${peliculaAccion.poster_path}`}
-                    alt={peliculaAccion.title}
+                    src={`https://image.tmdb.org/t/p/w500${peliculaGenero.poster_path}`}
+                    alt={peliculaGenero.title}
                 />
             </Link>
+
         </SwiperSlide>
+
     ));
 
     return (
-        <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={5}
-            slidesPerView={4}
-            navigation
-        >
-            {imagenAccion}
-        </Swiper>
+        <>
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={5}
+                slidesPerView={4}
+                navigation
+            >
+                {imagenAccion}
+            </Swiper>
+        </>
     );
 }
 
