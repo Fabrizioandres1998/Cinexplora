@@ -16,13 +16,13 @@ import Romance from "./Gen/Romance/Romance"
 import Terror from "./Gen/Terror/Terror"
 import Thriller from "./Gen/Thriller/Thriller"
 import Western from "./Gen/Western/Western"
-
+import SliderGenero from "./Gen/Genero/SliderGenero"
 const Movies = () => {
 
     return (
         <>
-            {/* <SliderAccion /> */}
-            <Animacion />
+            <SliderGenero />
+            {/* <Animacion />
             <Documental />
             <Terror />
 
@@ -39,7 +39,7 @@ const Movies = () => {
             <Misterio />
             <Musica />
             <PeliculasTv />
-            <Thriller />
+            <Thriller /> */}
         </>
     )
 }
