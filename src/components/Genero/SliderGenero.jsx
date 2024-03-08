@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Link } from "react-router-dom"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import InfoPeliculaGenero from './InfoPeliculaGenero';
 
-const SliderGenero = ({ GeneroID }) => {
+const SliderGenero = ({ GeneroID, generoIDName }) => {
     const [peliculasGenero, setpeliculasGenero] = useState([])
 
     const APIkey = '7f084ba9c7318f8925458bd9753330de'
@@ -41,29 +43,34 @@ const SliderGenero = ({ GeneroID }) => {
         fetchAllPages()
     }, [])
 
-    const imagenAccion = peliculasGenero.map((peliculaGenero) => (
+    const imagen = peliculasGenero.map((peliculaGenero) => (
         <SwiperSlide key={peliculaGenero.id}>
-            {/* <Link to={`/pelicula/${peliculaGenero.id}/${encodeURIComponent(peliculaGenero.title)}`}> */}
+            <Link to={`/${peliculaGenero.id}/${encodeURIComponent(peliculaGenero.title)}`}>
+
                 <img
                     src={`https://image.tmdb.org/t/p/w500${peliculaGenero.poster_path}`}
                     alt={peliculaGenero.title}
                 />
-            {/* </Link> */}
+            </Link>
 
         </SwiperSlide>
     ))
 
-return (
-    <>
-        <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={5}
-            slidesPerView={4}
-            navigation>
-            {imagenAccion}
-        </Swiper>
-    </>
-)
+    return (
+        <>
+            <h1>{generoIDName}</h1>
+            {peliculasGenero.length > 0 && (
+                <Swiper
+                    modules={[Navigation, Pagination, Scrollbar, A11y]}
+                    spaceBetween={5}
+                    slidesPerView={4}
+                    navigation
+                >
+                    {imagen}
+                </Swiper>)}
+            <InfoPeliculaGenero peliculasGenero={peliculasGenero} />
+        </>
+    )
 }
 export default SliderGenero
 
