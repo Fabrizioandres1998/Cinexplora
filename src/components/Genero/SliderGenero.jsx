@@ -46,15 +46,14 @@ const SliderGenero = ({ GeneroID, generoIDName }) => {
     const imagen = peliculasGenero.map((peliculaGenero) => (
         <SwiperSlide key={peliculaGenero.id}>
             <Link to={`/${peliculaGenero.id}/${encodeURIComponent(peliculaGenero.title)}`}>
-
                 <img
                     src={`https://image.tmdb.org/t/p/w500${peliculaGenero.poster_path}`}
                     alt={peliculaGenero.title}
                 />
+                <InfoPeliculaGenero peliculaGenero={peliculaGenero} key={peliculaGenero.id} />
             </Link>
-
         </SwiperSlide>
-    ))
+    ));
 
     return (
         <>
@@ -68,7 +67,6 @@ const SliderGenero = ({ GeneroID, generoIDName }) => {
                 >
                     {imagen}
                 </Swiper>)}
-            <InfoPeliculaGenero peliculasGenero={peliculasGenero} />
         </>
     )
 }

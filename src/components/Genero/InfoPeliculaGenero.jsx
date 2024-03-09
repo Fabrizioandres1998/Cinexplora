@@ -2,12 +2,13 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 
-const InfoPeliculaGenero = ({ peliculasGenero }) => {
+const InfoPeliculaGenero = ({ peliculaGenero }) => {
 
     const [trailer, setTrailer] = useState([])
     const { id } = useParams()
 
     useEffect(() => {
+    
         const fetchData = async () => {
             if (id) {
                 const APIkey = '7f084ba9c7318f8925458bd9753330de';
@@ -33,10 +34,14 @@ const InfoPeliculaGenero = ({ peliculasGenero }) => {
             }
         };
 
-        fetchData();
+        if (id) {
+            fetchData();
+        }
     }, [id]);
 
-    // console.log({peliculasGenero})
+    
+
+    console.log({ peliculaGenero })
     return (
         <div>
             {trailer && trailer.length > 0 && trailer[0].key && (
@@ -49,7 +54,6 @@ const InfoPeliculaGenero = ({ peliculasGenero }) => {
                     allowFullScreen
                 ></iframe>
             )}
-
         </div>
     )
 }
