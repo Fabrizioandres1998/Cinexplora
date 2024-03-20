@@ -1,4 +1,4 @@
-.containerPeliculas {
+.movieContainer{
     display: flex;
     list-style: none;
 }

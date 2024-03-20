@@ -10,7 +10,7 @@ function NavbarBT() {
     return (
         <Navbar expand="lg" className="bg-body-primary" data-bs-theme="dark" bg="dark">
             <Container>
-                <Link to={'/'}><Navbar.Brand>Cinexplora</Navbar.Brand></Link>
+                <Navbar.Brand>Cinexplora</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

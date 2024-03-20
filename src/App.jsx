@@ -1,23 +1,14 @@
-
-import NavbarBT from "./components/Navbar/NavbarBT"
-import '/styles.css'
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Genero from "./components/Genero/Genero"
-import InfoPeliculaGenero from "./components/Genero/InfoPeliculaGenero"
+import React from 'react'
+import GetMovies from './components/Genero/GetMovies'
+import NavbarBT from './components/Navbar/NavbarBT'
 
 
-function App() {
-
+const App = () => {
   return (
-    <BrowserRouter>
-      <NavbarBT />
-      
-      <Routes>
-        <Route path="/" element={<Genero />} />
-        <Route path="/:id/:title" element={<InfoPeliculaGenero />} />
-      </Routes>
-
-    </BrowserRouter>
+    <div>
+      <NavbarBT/>  
+      <GetMovies/>
+    </div>
   )
 }
 
