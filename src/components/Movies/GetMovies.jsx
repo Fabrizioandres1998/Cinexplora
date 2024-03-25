@@ -3,8 +3,8 @@ import SliderByGenres from './SliderByGenres';
 
 const GetMovies = () => {
 
-    const [movies, setMovies] = useState([])
-    const [genres, setGenres] = useState([])
+    const [movies, setMovies] = useState([]);
+    const [moviesGenres, setMoviesGenres] = useState([]);
 
     const APIurl = 'https://api.themoviedb.org/3/discover/movie'
     const APIkey = '7f084ba9c7318f8925458bd9753330de'
@@ -17,20 +17,18 @@ const GetMovies = () => {
 
             try {
                 const genresResponse = await fetch(TMDBurlGenres);
-                const genresData = await genresResponse.json()
-                setGenres(genresData.genres)
+                const genresData = await genresResponse.json();
+                setMoviesGenres(genresData.genres);
 
                 const requests = genresData.genres.map(async (genre) => {
                     const TMDBurl = `${APIurl}?api_key=${APIkey}&language=es-US&sort_by=popularity.desc&page=${1}&with_genres=${genre.id}`
                     const response = await fetch(TMDBurl);
                     const data = await response.json();
                     return data;
-
                 });
+
                 const moviesData = await Promise.all(requests);
                 setMovies(moviesData);
-                console.log('Movies:', moviesData);
-                console.log('Genres:', genresData.genres);
 
             } catch (error) {
                 console.error('Error al obtener géneros o películas:', error);
@@ -39,10 +37,11 @@ const GetMovies = () => {
 
         fetchMovies()
     }, [])
+    
 
     return (
         <>
-            <SliderByGenres movies={movies} genres={genres}/>
+            <SliderByGenres movies={movies} moviesGenres={moviesGenres} />
 
         </>
     );
